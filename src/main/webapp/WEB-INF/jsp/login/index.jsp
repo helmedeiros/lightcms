@@ -19,7 +19,7 @@
 	           </div>
             </div>
 	    
-			<form action="/login/validar" method="post">
+			<form action="login/validar" method="post">
 			
 			    <div>
 	                <input placeholder="Seu usuario aqui!" type="text" name="usuario" id="usuario" class="form-control" />
