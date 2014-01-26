@@ -1,4 +1,4 @@
-package com.bsouza.lightcms;
+package com.bsouza.lightcms.selenium.navegador;
 
 public interface ConteudoNavegavel {
 

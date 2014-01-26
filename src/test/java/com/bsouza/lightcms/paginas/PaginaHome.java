@@ -1,6 +1,9 @@
-package com.bsouza.lightcms;
+package com.bsouza.lightcms.paginas;
 
 import org.openqa.selenium.WebDriver;
+
+import com.bsouza.lightcms.selenium.navegador.ConteudoNavegavel;
+import com.bsouza.lightcms.selenium.navegador.ContextoDaPagina;
 
 public class PaginaHome implements ConteudoNavegavel {
 

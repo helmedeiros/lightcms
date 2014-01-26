@@ -18,7 +18,7 @@ public class LoginController {
 	public void index() { }
 	
 	@Post("/login/validar")
-	public void validar() {
+	public void validar(Login login) {
 		result.redirectTo(HomeController.class).index();
 	}
 	

@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
 <!DOCTYPE html>
 <html>
@@ -22,14 +22,16 @@
 			<form action="login/validar" method="post">
 			
 			    <div>
-	                <input placeholder="Seu usuario aqui!" type="text" name="usuario" id="usuario" class="form-control" />
+	                <input id="usuario" type="text" name="login.usuario" 
+	                       class="form-control" placeholder="Seu usuario aqui!" />
 	            </div>
 	            
 	            <div> 
-	                <input placeholder="Sua senha aqui!"   type="password" name="senha" id="senha" class="form-control" />
+	                <input id="senha" type="password" name="login.senha" 
+	                       class="form-control" placeholder="Sua senha aqui!" />
 	            </div>
 	             
-				<input value="validar" type="submit" id="validar" class="btn btn-primary" />
+				<input id="validar" value="validar" type="submit" class="btn btn-primary" />
 	        </form>
 	    </div>
     </body>

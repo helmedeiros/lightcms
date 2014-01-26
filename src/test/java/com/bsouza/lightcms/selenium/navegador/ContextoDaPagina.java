@@ -1,4 +1,4 @@
-package com.bsouza.lightcms;
+package com.bsouza.lightcms.selenium.navegador;
 
 import static org.openqa.selenium.By.id;
 
@@ -27,6 +27,10 @@ public class ContextoDaPagina {
 	
 	public boolean estouEm(String url) {
 		return driver.getCurrentUrl().equals(url);
+	}
+
+	public CampoRotulo aMensagem(String elementoId) {
+		return new CampoRotulo(procuraElemento(elementoId));
 	}
 	
 }

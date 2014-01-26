@@ -21,17 +21,27 @@
 		</dependency>
 
 		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+
+		<dependency>
 			<groupId>br.com.caelum</groupId>
 			<artifactId>vraptor</artifactId>
 			<version>3.5.3</version>
 		</dependency>
 
-		<!-- WEB -->
-
 		<dependency>
 			<groupId>com.efsavage.twitter.bootstrap</groupId>
 			<artifactId>bootstrap-maven</artifactId>
 			<version>2.0.4</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.mongodb</groupId>
+			<artifactId>mongo-java-driver</artifactId>
+			<version>2.11.3</version>
 		</dependency>
 
 		<!-- TEST DEPENDECIES -->
@@ -68,6 +78,12 @@
 			<artifactId>cucumber-junit</artifactId>
 			<version>1.1.5</version>
 			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-all</artifactId>
+			<version>1.9.5</version>
 		</dependency>
 
 	</dependencies>
