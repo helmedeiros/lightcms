@@ -10,4 +10,7 @@ public class Navegador {
 		return conteudo.contexto();
 	}
 	
+	public static boolean estouNa(ConteudoNavegavel conteudo) {
+		return conteudo.contexto().estouEm(conteudo.endereco());
+	}
 }

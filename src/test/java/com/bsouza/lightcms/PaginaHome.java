@@ -2,12 +2,12 @@ package com.bsouza.lightcms;
 
 import org.openqa.selenium.WebDriver;
 
-public class PaginaDeLogin implements ConteudoNavegavel {
+public class PaginaHome implements ConteudoNavegavel {
 
 	private final WebDriver driver;
-	private final String endereco = "http://localhost:8080/lightcms/login";
+	private final String endereco = "http://localhost:8080/lightcms/";
 
-	public PaginaDeLogin(WebDriver driver) {
+	public PaginaHome(WebDriver driver) {
 		this.driver = driver;
 	}
 

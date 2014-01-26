@@ -25,4 +25,8 @@ public class ContextoDaPagina {
 		return driver.findElement(id(elementoId));
 	}
 	
+	public boolean estouEm(String url) {
+		return driver.getCurrentUrl().equals(url);
+	}
+	
 }

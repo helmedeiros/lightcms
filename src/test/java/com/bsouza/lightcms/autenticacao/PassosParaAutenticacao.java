@@ -1,14 +1,14 @@
 package com.bsouza.lightcms.autenticacao;
 
-import static com.bsouza.lightcms.Navegador.irPara;
-import static com.bsouza.lightcms.Navegador.na;
+import static org.junit.Assert.*;
+import static com.bsouza.lightcms.Navegador.*;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import com.bsouza.lightcms.PaginaDeLogin;
+import com.bsouza.lightcms.PaginaHome;
 
-import cucumber.api.PendingException;
 import cucumber.api.java.Before;
 import cucumber.api.java.it.Quando;
 import cucumber.api.java.pt.Dado;
@@ -16,12 +16,14 @@ import cucumber.api.java.pt.Então;
 
 public class PassosParaAutenticacao {
 	
-	private WebDriver driver; 
+	private WebDriver driver;
+	private PaginaHome paginaHome;
 	private PaginaDeLogin paginaDeLogin;
 	
 	@Before
 	public void inicializacao() {
 		this.driver = new FirefoxDriver();
+		this.paginaHome = new PaginaHome(driver);
 		this.paginaDeLogin = new PaginaDeLogin(driver);
 	}
 	
@@ -48,7 +50,7 @@ public class PassosParaAutenticacao {
 
 	@Então("^devo ser redirecionado para a página Home$")
 	public void devo_ser_redirecionado_para_a_página_Home() throws Throwable {
-	    throw new PendingException();
+	    assertTrue(estouNa(paginaHome));
 	}
 	
 }
