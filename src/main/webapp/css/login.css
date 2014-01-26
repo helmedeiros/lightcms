@@ -1,0 +1,41 @@
+body {
+	background-color: #000000 !important;
+}
+
+.form-login {
+	position: absolute;
+	top: 50%;
+	margin-top: -168px;
+    left: 50%;
+    margin-left: -180px;
+	padding: 30px; 
+	background-color: #f7f7f7;
+	-moz-box-shadow: 0 0 3px 3px #888;
+	-webkit-box-shadow: 0 0 3px 3px #888;
+	box-shadow: 0 0 3px 3px #888;
+	border-radius: 2px;
+}
+
+.form-login .header {
+	margin-bottom: 40px;
+}
+
+.form-login .header img {
+	margin-left: 45px;
+	margin-right: 25px;
+}
+
+.form-login .header .mensagem {
+    padding-top: 8px;
+	font-size: 22px;
+	font-weight: bold;
+	line-height: 30px;
+}
+
+.form-login form {
+    margin-bottom: 0px;
+}
+
+input[type='text'], input[type='password'] {
+	width: 350px;
+}
