@@ -19,7 +19,6 @@ public class LoginController {
 	
 	@Post("/login/validar")
 	public void validar() {
-		System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa");
 		result.redirectTo(HomeController.class).index();
 	}
 	
