@@ -34,7 +34,7 @@ public class RepositorioDeUsuarios {
 		Usuario usuario = pesquisa(login);
 		
 		if (usuario == null) { 
-			colecao.insert(consultaPorNome(login)); 
+			colecao.insert(consultaComSenha(login)); 
 		}
 		
 		return (usuario == null);
