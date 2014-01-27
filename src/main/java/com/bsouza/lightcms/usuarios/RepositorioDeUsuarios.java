@@ -17,26 +17,38 @@ public class RepositorioDeUsuarios {
 		this.colecao = conexao.colecao("usuarios"); 
 	}
 
-	public Usuario busca(Login login) {		
-		DBObject dadosUsuario = colecao.findOne(consulta(login));
-		Usuario usuario = null;
-		
-		if (dadosUsuario != null) {
-			usuario = new Usuario((String) dadosUsuario.get("nome"));
-		}
-		
-		return usuario;
+	public Usuario validaLogin(Login login) {		
+		return pesquisaPadrao(consultaComSenha(login));
+	}
+	
+	public Usuario pesquisa(Login login) {
+		return pesquisaPadrao(consultaPorNome(login));
+	}
+	
+	private Usuario pesquisaPadrao(DBObject consulta) {
+		DBObject dadosUsuario = colecao.findOne(consulta);
+		return (dadosUsuario != null) ? new Usuario((String) dadosUsuario.get("nome")) : null;
 	}
 
-	public void salva(Login login) {
-		colecao.insert(consulta(login));
+	public boolean salva(Login login) {
+		Usuario usuario = pesquisa(login);
+		
+		if (usuario == null) { 
+			colecao.insert(consultaPorNome(login)); 
+		}
+		
+		return (usuario == null);
 	}
 	
 	public void exclui(Login login) {
-		colecao.remove(consulta(login));
+		colecao.remove(consultaPorNome(login));
 	}
 	
-	private DBObject consulta(Login login) {
+	private DBObject consultaPorNome(Login login) {
+		return new FabricaDeConsulta().onde("nome").igualA(login.getUsuario()).criar();
+	}
+	
+	private DBObject consultaComSenha(Login login) {
 		return new FabricaDeConsulta()
 			.onde("nome").igualA(login.getUsuario())
 			.e("senha").igualA(login.getSenha()).criar();

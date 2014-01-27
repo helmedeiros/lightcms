@@ -16,7 +16,7 @@ public class Autenticador {
 	public EstadoDaAutenticacao autoriza(Login login) {
 		EstadoDaAutenticacao estado = EstadoDaAutenticacao.FALHA;
 		
-		if (repositorio.busca(login) != null) {
+		if (repositorio.validaLogin(login) != null) {
 			estado = EstadoDaAutenticacao.SUCESSO;
 		}
 		

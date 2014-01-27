@@ -31,7 +31,7 @@ public class AutenticadorTest {
 	}
 	
 	public void repositorioDeveRetornar(Login login) {
-		when(repositorio.busca(login)).thenReturn(new Usuario(login.getUsuario()));
+		when(repositorio.validaLogin(login)).thenReturn(new Usuario(login.getUsuario()));
 	}
 	
 	public Login usaLogin(String usuario, String senha) {
