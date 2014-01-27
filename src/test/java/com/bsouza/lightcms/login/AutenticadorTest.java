@@ -35,10 +35,7 @@ public class AutenticadorTest {
 	}
 	
 	public Login usaLogin(String usuario, String senha) {
-		Login login = new Login();
-		login.setUsuario(usuario);
-		login.setSenha(senha);
-		return login;
+		return new Login(usuario, senha);
 	}
 
 }
