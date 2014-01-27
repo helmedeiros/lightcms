@@ -1,0 +1,5 @@
+host: localhost
+porta: 27017
+usuario: bsouza
+senha: teste123
+base: lightcms_tst

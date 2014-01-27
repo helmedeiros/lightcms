@@ -1,14 +1,22 @@
 package com.bsouza.lightcms.login;
 
+import com.bsouza.lightcms.usuarios.RepositorioDeUsuarios;
+
 import br.com.caelum.vraptor.ioc.Component;
 
 @Component
 public class Autenticador {
 
+	private RepositorioDeUsuarios repositorio;
+
+	public Autenticador(RepositorioDeUsuarios repositorio) {
+		this.repositorio = repositorio;
+	}
+	
 	public EstadoDaAutenticacao autoriza(Login login) {
 		EstadoDaAutenticacao estado = EstadoDaAutenticacao.FALHA;
 		
-		if (login.getUsuario().equals("bsouza") && login.getSenha().equals("teste123")) {
+		if (repositorio.busca(login) != null) {
 			estado = EstadoDaAutenticacao.SUCESSO;
 		}
 		

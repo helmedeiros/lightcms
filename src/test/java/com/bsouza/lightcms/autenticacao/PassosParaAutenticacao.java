@@ -6,12 +6,17 @@ import static com.bsouza.lightcms.selenium.navegador.Navegador.irPara;
 import static com.bsouza.lightcms.selenium.navegador.Navegador.na;
 
 import java.io.File;
+import java.net.UnknownHostException;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import com.bsouza.lightcms.login.Login;
+import com.bsouza.lightcms.mongo.Conexao;
+import com.bsouza.lightcms.mongo.LeitorDeConfiguracao;
 import com.bsouza.lightcms.paginas.PaginaDeLogin;
 import com.bsouza.lightcms.paginas.PaginaHome;
+import com.bsouza.lightcms.usuarios.RepositorioDeUsuarios;
 
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
@@ -22,22 +27,44 @@ import cucumber.api.java.pt.Então;
 public class PassosParaAutenticacao {
 	
 	private WebDriver driver;
+	
 	private PaginaHome paginaHome;
 	private PaginaDeLogin paginaDeLogin;
 	
+	private Login loginValido;
+	private RepositorioDeUsuarios repositorio;
+	
 	@Before
-	public void inicializacao() {
-		String enderecoDriver = new File(System.getProperty("user.dir"), "src/test/resources/chromedriver").getPath();
-		System.setProperty("webdriver.chrome.driver", enderecoDriver);
+	public void inicializacao() throws UnknownHostException {
+		this.configuraChrome();
+		
+		this.repositorio = new RepositorioDeUsuarios(new Conexao(new LeitorDeConfiguracao()));				
+		this.loginValido = new Login("bsouza", "root");
 		
 		this.driver = new ChromeDriver();
 		this.paginaHome = new PaginaHome(driver);
 		this.paginaDeLogin = new PaginaDeLogin(driver);
+		
+		this.criaUsuarios();
+	}
+	
+	private void configuraChrome() {
+		String enderecoDriver = new File(System.getProperty("user.dir"), "src/test/resources/chromedriver").getPath();
+		System.setProperty("webdriver.chrome.driver", enderecoDriver);
 	}
 	
 	@After
 	public void fecharNavegador() {
+		this.removeUsuarios();
 		this.driver.close();
+	}
+	
+	public void criaUsuarios() {
+		repositorio.salva(loginValido);
+	}
+	
+	private void removeUsuarios() {
+		repositorio.exclui(loginValido);
 	}
 	
 	@Dado("^que estou na página de login$")
@@ -70,5 +97,4 @@ public class PassosParaAutenticacao {
 		verificarQue(na(paginaDeLogin).aMensagem("mensagem-de-erro").ehIgualA(mensagemDeAutenticacaoInvalida));
 	}
 
-	
 }
