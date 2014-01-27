@@ -14,5 +14,5 @@ Cenario: Tentativa de autenticação com senha inválida
     Quando eu informo o usuário "bsouza"
     E informo a senha "teste"
     E clico no botão "validar"
-    Então devo ver a mensagem "Falha na autententicação! Por favor, revise suas credenciais. Se o problema persistir entre em contato com o administrador" 
+    Então devo ver a mensagem "Falha na autententicação! Por favor revise suas credenciais ou, se o problema persistir, contata-te o administrador." 
     

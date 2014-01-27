@@ -1,0 +1,4 @@
+mongodb:
+  user: bsouza
+  password: teste123
+  database: lightcms_dev

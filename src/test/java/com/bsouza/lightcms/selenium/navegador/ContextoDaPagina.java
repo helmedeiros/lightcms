@@ -29,7 +29,7 @@ public class ContextoDaPagina {
 		return driver.getCurrentUrl().equals(url);
 	}
 
-	public CampoRotulo aMensagem(String elementoId) {
+	public CampoRotulo aMensagem(String elementoId) throws Exception {
 		return new CampoRotulo(procuraElemento(elementoId));
 	}
 	

@@ -1,10 +1,14 @@
 package com.bsouza.lightcms.autenticacao;
 
-import static com.bsouza.lightcms.selenium.Verificador.*;
-import static com.bsouza.lightcms.selenium.navegador.Navegador.*;
+import static com.bsouza.lightcms.selenium.Verificador.verificarQue;
+import static com.bsouza.lightcms.selenium.navegador.Navegador.estouNa;
+import static com.bsouza.lightcms.selenium.navegador.Navegador.irPara;
+import static com.bsouza.lightcms.selenium.navegador.Navegador.na;
+
+import java.io.File;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 import com.bsouza.lightcms.paginas.PaginaDeLogin;
 import com.bsouza.lightcms.paginas.PaginaHome;
@@ -23,13 +27,16 @@ public class PassosParaAutenticacao {
 	
 	@Before
 	public void inicializacao() {
-		this.driver = new FirefoxDriver();
+		String enderecoDriver = new File(System.getProperty("user.dir"), "src/test/resources/chromedriver").getPath();
+		System.setProperty("webdriver.chrome.driver", enderecoDriver);
+		
+		this.driver = new ChromeDriver();
 		this.paginaHome = new PaginaHome(driver);
 		this.paginaDeLogin = new PaginaDeLogin(driver);
 	}
 	
 	@After
-	public void encerrarTeste() {
+	public void fecharNavegador() {
 		this.driver.close();
 	}
 	
@@ -59,8 +66,9 @@ public class PassosParaAutenticacao {
 	}
 
 	@Então("^devo ver a mensagem \"([^\"]*)\"$")
-	public void devo_ver_a_mensagem(String mensagemDeAutenticacaoInvalida) throws Throwable {		
-//		verificarQue(na(paginaDeLogin).aMensagem("mensagem-de-erro").ehIgualA(mensagemDeAutenticacaoInvalida));
+	public void ver_a_mensagem(String mensagemDeAutenticacaoInvalida) throws Throwable {
+		verificarQue(na(paginaDeLogin).aMensagem("mensagem-de-erro").ehIgualA(mensagemDeAutenticacaoInvalida));
 	}
+
 	
 }

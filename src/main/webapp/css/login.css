@@ -39,3 +39,13 @@ body {
 input[type='text'], input[type='password'] {
 	width: 350px;
 }
+
+#mensagem-de-erro {
+	width: 342px;
+	background-color: #E3ACB6;
+	border: 1px solid #A3172E;
+	color: #A3172E;
+	font-size: 16px;
+	margin-bottom: 15px;
+	padding: 8px;
+}
