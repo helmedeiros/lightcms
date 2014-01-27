@@ -27,17 +27,32 @@ public class LoginControllerTest {
 	}
 	
 	@Test
+	public void deveAutenticarComUsuarioESenhaValidos() {
+		Login login = utilizarLogin("bsouza", "teste123");
+		autenticacaoDeveTerSucesso(login);
+		deveSerRedirecionadoParaHome();
+		controller.validar(login);
+	}
+	
+	@Test
 	public void deveFalharQuandoASenhaEhInvalida() {
-		Login login = new Login();
-		login.setUsuario("bsouza");
-		login.setSenha("teste");
-		
+		Login login = utilizarLogin("bsouza", "teste");
 		autenticacaoDeveFalhar(login);
 		deveSerEncaminhadoParaOLogin();
-		
 		controller.validar(login);
 		
 		deveTerIncluidoMensagemDeFalhaDeAutenticacao();
+	}
+	
+	private Login utilizarLogin(String usuario, String senha) {
+		Login login = new Login();
+		login.setUsuario(usuario);
+		login.setSenha(senha);
+		return login;
+	}
+	
+	private void autenticacaoDeveTerSucesso(Login login) {
+		when(autenticador.autoriza(login)).thenReturn(EstadoDaAutenticacao.SUCESSO);
 	}
 	
 	private void autenticacaoDeveFalhar(Login login) {
