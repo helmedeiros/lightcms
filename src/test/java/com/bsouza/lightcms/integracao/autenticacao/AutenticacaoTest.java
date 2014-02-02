@@ -1,4 +1,4 @@
-package com.bsouza.lightcms.autenticacao;
+package com.bsouza.lightcms.integracao.autenticacao;
 
 import org.junit.runner.RunWith;
 
