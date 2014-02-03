@@ -1,4 +1,4 @@
-package com.bsouza.lightcms.autenticacao;
+package com.bsouza.lightcms.integracao.autenticacao;
 
 import static com.bsouza.lightcms.selenium.Verificador.verificarQue;
 import static com.bsouza.lightcms.selenium.navegador.Navegador.estouNa;

@@ -7,7 +7,7 @@ import com.bsouza.lightcms.mongo.Conexao;
 import com.bsouza.lightcms.mongo.LeitorDeConfiguracao;
 import com.bsouza.lightcms.usuarios.RepositorioDeUsuarios;
 
-public class CriadoDeUsuario {
+public class CriadorDeUsuario {
 
 	public static void main(String[] args) throws UnknownHostException {
 		Conexao conexao = new Conexao(new LeitorDeConfiguracao());
